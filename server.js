@@ -7,28 +7,26 @@ const offers = __dirname + '/json/orderbook.json';
 
 app.get('/listOffers', function (req, res) {
     fs.readFile(offers, 'utf8', function (err, data) {
-        // console.log(data);
         res.end(data);
     });
 });
 
+let Comparator = function (a, b) {
+    return a[0] > b[0] ? 1 : -1;
+};
 
 app.get('/amount', function (req, res) {
     fs.readFile(offers, 'utf8', function (err, data) {
         let offers = JSON.parse(data);
-        let asks = offers["asks"];
-        findAmount(45000.00000000, offers["bids"]).then(v => {
-            let bids = v;
-            console.log(bids);
-            res.end(JSON.stringify(bids));
-        });
-
+        let asks = offers["asks"].sort(Comparator); // use reverse for Desc sorting
+        // let bids = findAmount(45000.00000000, offers["bids"]);
+        res.end(JSON.stringify(asks));
     });
 });
 
-let findAmount = async function (amount, bids) {
+let findAmount = function (amount, bids) {
     let result = [];
-    for (let i = 0, len = bids.length; i < len; i++) {
+    for (let i = 0; i < bids.length; i++) {
         let bid = bids[i][0];
         if (bid == amount) {
             result.push(bid);
