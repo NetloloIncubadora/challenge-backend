@@ -24,6 +24,8 @@ app.get('/amount', function (req, res) {
     });
 });
 
+// TODO search for more than one amount at the time
+
 let findAmount = function (amount, bids) {
     let result = [];
     for (let i = 0; i < bids.length; i++) {
