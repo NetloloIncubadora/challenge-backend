@@ -1,32 +1,22 @@
 'use strict';
 
-let Utils = require('../utils/filter-utils.js');
-let orderBook = __dirname + '/../json/orderbook.json'
-let fs = require('fs');
+let BaseController = require('./baseController.js');
 
-class OfferController extends Utils {
+class OfferController extends BaseController {
     search(req, res) {
-        console.log(orderBook);
-        // res.render();
-        fs.readFile(orderBook, 'utf8', function (err, data) {
-            // // console.log(data);
-            res.render(data);
-            // console.log(orderBook);
-            // let offers = JSON.parse(orderBook);
-            // res.render(JSON.stringify(orderBook));
 
-            // let asks = offers["asks"];
-            // let bids = offers["bids"];
+        let asks = super.json.orderBook["asks"];
+        let bids = super.json.orderBook["bids"];
 
-            // let amounts = SplitParameters(req.params.amounts);
-            // let sortOption = req.params.sort;
+        let amounts = super.utils.SplitParameters(req.params.amounts);
 
-            // bids = FindAmount(amounts, bids);
-            // // asks = FindAmount(amounts, asks);
+        let sortOption = req.params.sort;
 
-            // let results = SortResults(bids, sortOption);
-            // res.end(JSON.stringify(bids));
-        });
+        bids = super.utils.FindAmount(amounts, bids);
+        asks = super.utils.FindAmount(amounts, asks);
+
+        let results = super.utils.SortResults(bids, sortOption);
+        res.end(JSON.stringify(bids));
     }
 }
 

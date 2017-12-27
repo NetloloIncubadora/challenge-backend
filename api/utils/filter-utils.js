@@ -12,9 +12,9 @@ class Utils {
     SortResults(values, sortOption) {
         if (sortOption !== undefined) {
             if (sortOption === 'asc')
-                return values.sort(Comparator);
+                return values.sort(this.Comparator);
             else
-                return values.sort(Comparator).reverse();
+                return values.sort(this.Comparator).reverse();
         }
         return values;
     };
@@ -42,7 +42,7 @@ class Utils {
         let result = [];
         for (let i = 0; i < offers.length; i++) {
             let offer = offers[i][0];
-            if (IsBelowPrices)
+            if (this.IsBelowPrices)
                 result.push(offer);
             // for (let j = 0; j < amounts.length; j++) {
             //     let amount = amounts[j];
