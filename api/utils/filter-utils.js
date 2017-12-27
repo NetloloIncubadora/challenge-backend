@@ -31,13 +31,17 @@ class Utils {
         return result;
     }
 
+    CalcOffer(price, amount) {
+        return (price * amount).toFixed(2);
+    }
+
     FindAmount(amountsSearch, offers) {
         let result = [];
         for (let i = 0; i < offers.length; i++) {
             let price = Number.parseFloat(offers[i][0]);
             let amount = Number.parseFloat(offers[i][1]);
             if (this.HasSameAmount(amountsSearch, amount)) {
-                let offer = (price * amount).toFixed(2);
+                let offer = this.CalcOffer(price, amount);
                 result.push(offer);
             }
         }
