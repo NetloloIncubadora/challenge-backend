@@ -3,7 +3,7 @@
 let JsonInit = require('../init/json-init.js');
 let Utils = require('../utils/filter-utils.js');
 
-class BaseController extends Utils {
+class BaseController {
     get json() {
         return new JsonInit();
     }

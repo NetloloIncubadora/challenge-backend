@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "test": "test"
+    "test": "mocha"
   },
   "author": "Henrique Carvalho da Cruz",
   "license": "ISC",
@@ -12,6 +12,7 @@
     "express": "^4.16.2"
   },
   "devDependencies": {
+    "mocha": "^4.0.1",
     "nodemon": "^1.14.3"
   }
 }

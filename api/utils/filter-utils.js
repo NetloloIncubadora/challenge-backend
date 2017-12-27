@@ -35,7 +35,7 @@ class Utils {
         return (price * amount).toFixed(2);
     }
 
-    FindAmount(amountsSearch, offers) {
+    FindOffer(amountsSearch, offers) {
         let result = [];
         for (let i = 0; i < offers.length; i++) {
             let price = Number.parseFloat(offers[i][0]);
