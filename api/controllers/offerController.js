@@ -8,15 +8,17 @@ class OfferController extends BaseController {
         let asks = super.json.orderBook["asks"];
         let bids = super.json.orderBook["bids"];
 
-        let amounts = super.utils.SplitParameters(req.params.amounts);
+        let amountsSearch = super.utils.SplitParameters(req.params.amounts);
 
         let sortOption = req.params.sort;
 
-        bids = super.utils.FindAmount(amounts, bids);
-        asks = super.utils.FindAmount(amounts, asks);
+        bids = super.utils.SortByPrice(bids, sortOption);
+        asks = super.utils.SortByPrice(asks, sortOption);
 
-        let results = super.utils.SortResults(bids, sortOption);
-        res.end(JSON.stringify(bids));
+        bids = super.utils.FindAmount(amountsSearch, bids);
+        asks = super.utils.FindAmount(amountsSearch, asks);
+
+        res.end(JSON.stringify(asks));
     }
 }
 
