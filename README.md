@@ -45,3 +45,4 @@ Returns json data about offers based on one or more specific amounts. This resul
       }
     });
   ```
+  http://localhost:3000/offer/0.63322053/desc
