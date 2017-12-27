@@ -2,7 +2,6 @@
 
 let assert = require('assert');
 let Utils = require('../api/utils/filter-utils.js');
-let OrderBook = require('../api/json/orderbook.json');
 
 let _utils = new Utils();
 
