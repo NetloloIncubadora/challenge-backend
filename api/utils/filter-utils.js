@@ -19,31 +19,41 @@ class Utils {
         return values;
     };
 
-    HasSameAmount(amountsSearch, amount) {
-        let result = false;
-        for (let i = 0; i < amountsSearch.length; i++) {
-            let amountSearch = amountsSearch[i];
-            if (amount == amountSearch) {
-                result = true;
-                break;
-            }
-        }
-        return result;
+    CalculateOffer(price, amount) {
+        return price * amount;
     }
 
-    CalcOffer(price, amount) {
-        return (price * amount).toFixed(2);
+    IsOfferHigherThanSearch(search, offer) {
+        return offer > search;
     }
 
-    FindOffer(amountsSearch, offers) {
+    CalculatePartialPrice(search, offer, amount) {
+        return (offer - search) / amount;
+    }
+
+    CalculatePartialAmount(search, offer, price) {
+        return (offer - search) / price;
+    }
+
+    FindOffers(amountsSearch, offers) {
         let result = [];
+        let totalSearch = amountsSearch;
         for (let i = 0; i < offers.length; i++) {
             let price = Number.parseFloat(offers[i][0]);
             let amount = Number.parseFloat(offers[i][1]);
-            if (this.HasSameAmount(amountsSearch, amount)) {
-                let offer = this.CalcOffer(price, amount);
-                result.push(offer);
+            let offer = this.CalculateOffer(price, amount);
+
+            if (this.IsOfferHigherThanSearch(totalSearch, offer)) {
+                let newPrice = this.CalculatePartialPrice(totalSearch, offer, amount);
+                let newAmount = this.CalculatePartialAmount(totalSearch, offer, price);
+                let tempPartialResult = [newPrice, newAmount];
+                result.push(tempPartialResult);
+                break;
             }
+
+            let tempResult = [price, amount];
+            totalSearch -= offer;
+            result.push(tempResult);
         }
         return result;
     };

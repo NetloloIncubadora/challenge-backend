@@ -5,12 +5,12 @@ let Utils = require('../api/utils/filter-utils.js');
 
 let _utils = new Utils();
 
-describe('Has An Equal Amount', function () {
+describe("Has A Search Higher Than An Offer's Amount", function () {
     it('should return true', function () {
-        let amountsSearch = [0.63322053];
-        let amount = 0.63322053;
+        let search = 8000;
+        let offer = 10000;
         let result = true;
-        assert.equal(_utils.HasSameAmount(amountsSearch, amount), result);
+        assert.equal(_utils.IsOfferHigherThanSearch(search, offer), result);
     });
 });
 

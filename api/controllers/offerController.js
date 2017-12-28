@@ -12,20 +12,18 @@ class OfferController extends BaseController {
 
         let sortOption = req.params.sort;
 
+        bids = super.utils.FindOffers(amountsSearch, bids);
+        asks = super.utils.FindOffers(amountsSearch, asks);
+
         bids = super.utils.SortByPrice(bids, sortOption);
         asks = super.utils.SortByPrice(asks, sortOption);
 
-        bids = super.utils.FindOffer(amountsSearch, bids);
-        asks = super.utils.FindOffer(amountsSearch, asks);
-
         let results = {
-            results: {
-                asks: asks,
-                bids: bids
-            }
+            asks: asks,
+            bids: bids
         };
 
-        res.end(JSON.stringify(results));
+        res.end(JSON.stringify(results, null, 4));
     }
 }
 
