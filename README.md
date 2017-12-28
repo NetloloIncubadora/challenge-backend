@@ -11,7 +11,7 @@ A customer needs to search in a orderbook and he wants to buy offers below some 
 ## Installing
 1. ```npm install```
 
-## Running the Application
+## Running Application
 1. ```npm start```
 
 ## Running UnitTest
@@ -37,7 +37,7 @@ Returns json data about offers based on one or more specific amounts. This resul
 
   ```javascript
     $.ajax({
-      url: "/offer/0.63322053/desc",
+      url: "/offer/80000/desc",
       dataType: "json",
       type : "GET",
       success : function(r) {
@@ -45,4 +45,4 @@ Returns json data about offers based on one or more specific amounts. This resul
       }
     });
   ```
-  http://localhost:3000/offer/0.63322053/desc
+  http://localhost:3000/offer/80000/desc
