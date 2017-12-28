@@ -26,20 +26,9 @@ describe('Calculate Real Offer Value', function () {
 describe('Calculate Partial Price', function () {
     it('should return calculated offer value', function () {
         let search = 8000;
-        let offer = 10000;
         let amount = 0.2;
-        let result = 10000
-        assert.equal(_utils.CalculatePartialPrice(search, offer, amount), result);
-    });
-});
-
-describe('Calculate Partial amount', function () {
-    it('should return calculated offer value', function () {
-        let search = 8000;
-        let offer = 10000;
-        let price = 50000;
-        let result = 0.04;
-        assert.equal(_utils.CalculatePartialAmount(search, offer, price), result);
+        let result = 40000
+        assert.equal(_utils.CalculatePartialPrice(search, amount), result);
     });
 });
 

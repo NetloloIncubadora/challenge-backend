@@ -27,15 +27,25 @@ class Utils {
         return offer > search;
     }
 
-    CalculatePartialPrice(search, offer, amount) {
-        return (offer - search) / amount;
+    CalculatePartialPrice(search, amount) {
+        return search / amount;
     }
 
-    CalculatePartialAmount(search, offer, price) {
-        return (offer - search) / price;
+    SearchAmounts(amountsSearch, offers, sort) {
+        let result = [];
+
+        for (let i = 0; i < amountsSearch.length; i++) {
+            let localAmount = amountsSearch[i];
+            let tempAmount = {
+                [localAmount]: this.FindOffers(localAmount, offers, sort)
+            }
+            result.push(tempAmount);
+        }
+
+        return result;
     }
 
-    FindOffers(amountsSearch, offers) {
+    FindOffers(amountsSearch, offers, sort) {
         let result = [];
         let totalSearch = amountsSearch;
         for (let i = 0; i < offers.length; i++) {
@@ -44,9 +54,8 @@ class Utils {
             let offer = this.CalculateOffer(price, amount);
 
             if (this.IsOfferHigherThanSearch(totalSearch, offer)) {
-                let newPrice = this.CalculatePartialPrice(totalSearch, offer, amount);
-                let newAmount = this.CalculatePartialAmount(totalSearch, offer, price);
-                let tempPartialResult = [newPrice, newAmount];
+                let newPrice = this.CalculatePartialPrice(totalSearch, amount);
+                let tempPartialResult = [newPrice, amount];
                 result.push(tempPartialResult);
                 break;
             }
@@ -55,6 +64,8 @@ class Utils {
             totalSearch -= offer;
             result.push(tempResult);
         }
+        result = this.SortByPrice(result, sort);
+
         return result;
     };
 }

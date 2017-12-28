@@ -33,7 +33,7 @@ Returns json data about offers based on one or more specific amounts. This resul
 
    `sort=[string]`
 
-   * **Sample Call:**
+   * **Sample Calls:**
 
   ```javascript
     $.ajax({
@@ -46,3 +46,15 @@ Returns json data about offers based on one or more specific amounts. This resul
     });
   ```
   http://localhost:3000/offer/80000/desc
+
+  ```javascript
+    $.ajax({
+      url: "/offer/30000,20000/asc",
+      dataType: "json",
+      type : "GET",
+      success : function(r) {
+        console.log(r);
+      }
+    });
+  ```
+  http://localhost:3000/offer/30000,20000/asc
