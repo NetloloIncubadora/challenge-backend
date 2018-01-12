@@ -34,6 +34,8 @@ class Utils {
     SearchAmounts(amountsSearch, offers, sort) {
         let result = [];
 
+        if(offers === undefined || offers === []) return "There are no offers for this type";
+
         for (let i = 0; i < amountsSearch.length; i++) {
             let localAmount = amountsSearch[i];
             let tempAmount = {

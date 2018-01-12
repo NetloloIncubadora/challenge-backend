@@ -5,15 +5,12 @@ let BaseController = require('./baseController.js');
 class OfferController extends BaseController {
     search(req, res) {
 
-        let asks = super.json.orderBook["asks"];
-        let bids = super.json.orderBook["bids"];
-
         let amountsSearch = super.utils.SplitParameters(req.params.amounts);
 
         let sortOption = req.params.sort;
 
-        bids = super.utils.SearchAmounts(amountsSearch, bids, sortOption);
-        asks = super.utils.SearchAmounts(amountsSearch, asks, sortOption);
+        let bids = super.utils.SearchAmounts(amountsSearch, super.json.orderBook["bids"], sortOption);
+        let asks = super.utils.SearchAmounts(amountsSearch, super.json.orderBook["asks"], sortOption);
 
         let results = {
             asks: asks,
