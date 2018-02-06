@@ -16,7 +16,7 @@ If you want to use the endpoint on the browser or some app like 'postman'
 - Run npm start
 
 And access the following endpoints through GET: 
-- /ask
+- /asks
 - /bids
 
 You can also send some query string parameters like:
