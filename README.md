@@ -1,24 +1,24 @@
 <p align="center">
-  <a href="https://www.netlolo.com">
+  <a href="https://www.netlolo.com" target="_blank">
       <img src="https://app.netlolo.com/images/logo_vertical.png" alt="Netlolo"/>
   </a>
 </p>
 
 ## Challenge for Backend Developer
 
-A customer needs to search in a orderbook and he wants to buy offers below some price, and also sell offers to earn some money.
+A customer needs to search in a orderbook. He wants to buy offers below some price, and also sell offers to earn some money.
 
 ## Installing
-1. ```npm install```
+* ```npm install```
 
 ## Running Application
-1. ```npm start```
+* ```npm start```
 
 ## Running UnitTest
-1. ```npm test```
+* ```npm test```
 
 ## Search Offers
-Returns json data about offers based on one or more specific amounts. This results can also be sorted in ascending or descending order with an optional parameter.
+Returns json data about offers, based on one or more specific amounts. These results can also be sorted in ascending or descending order with an optional parameter.
 
 * **URL**
 /offer/:amounts/:sort?
