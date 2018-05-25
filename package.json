@@ -1,0 +1,25 @@
+{
+  "name": "andrews-test",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "mocha"
+  },
+  "author": "andrews wu",
+  "license": "ISC",
+  "dependencies": {
+    "app-root-path": "^2.0.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "express-winston": "^2.5.1",
+    "morgan": "^1.9.0",
+    "winston": "^2.4.2"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0",
+    "node-mocks-http": "^1.7.0"
+  }
+}
