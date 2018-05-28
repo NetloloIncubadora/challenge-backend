@@ -1,0 +1,14 @@
+node_modules
+scripts
+.vscode
+.history
+
+npm-debug.log
+
+.eslintrc.js
+.gitignore
+
+Dockerfile
+
+LICENSE
+README.md
