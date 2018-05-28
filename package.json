@@ -1,0 +1,34 @@
+{
+  "name": "api-challenge-backend",
+  "version": "1.0.0",
+  "description": "this is an simple test api-challenge-chackend",
+  "main": "index.js",
+  "scripts": {
+    "start": "pm2 start processes.json",
+    "list": "pm2 list processes.json",
+    "monit": "pm2 monit process.json",
+    "stop": "pm2 stop processes.json",
+    "remove": "pm2 delete processes.json",
+    "test": "export app_environment=test && mocha $(find src -name '*spec.js')",
+    "coverage": "export app_environment=test && istanbul cover _mocha $(find src -name '*spec.js' -not -path \"./node_modules/*\")"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "boom": "^7.2.0",
+    "cors": "^2.8.4",
+    "fastify": "^1.4.0",
+    "fastify-compress": "^0.4.0",
+    "fastify-helmet": "^1.0.3",
+    "fastify-plugin": "^0.2.2",
+    "fastify-swagger": "^0.6.0",
+    "json-schema-faker": "^0.5.0-rc15",
+    "pino": "^4.15.0"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "istanbul": "^0.4.5",
+    "mocha": "^5.0.5"
+  }
+}
