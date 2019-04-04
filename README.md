@@ -1,29 +1,60 @@
 <p align="center">
-  <a href="https://www.netlolo.com">
+  <a href="https://www.netlolo.com" target="_blank">
       <img src="https://app.netlolo.com/images/logo_vertical.png" alt="Netlolo"/>
   </a>
 </p>
 
 ## Challenge for Backend Developer
 
-A customer needs to search in our orderbook (available in this <a href="https://github.com/NetloloIncubadora/challenge/blob/master/orderbook.json">JSON</a>) and he wants to buy offers below some price also sell offer offer to recieve some money.
-Based on this you will need to develop:
+A customer needs to search in a orderbook. He wants to buy offers below some price, and also sell offers to earn some money.
 
-- a simple API to search offers in the .json available;
-- it should be possible to search for offer by their amount (one or more);
-- it must be possible to order the result by price (asc and desc);
+## Installing
+* ```npm install```
 
-The test should be done in Node(ECMAScript6). We expect at the end of the test, outside the API running, the following items:
+## Running Application
+* ```npm start```
 
-- an explanation of what is needed to make your project work;
-- an explanation of how to perform the tests;
+## Running UnitTest
+* ```npm test```
 
-Remember that at the time of the evaluation we will look at:
+## Search Offers
+Returns json data about offers, based on one or more specific amounts. These results can also be sorted in ascending or descending order with an optional parameter.
 
-- Code organization;
-- Object-Oriented Principles;
-- Maintenance;
+* **URL**
+/offer/:amounts/:sort?
 
-To send us your code, you must:
+*  **URL Params**
 
-Make a fork of this repository, and send us a pull-request.
+   **Required:**
+ 
+   `amounts=[float]`
+
+   **Optional:**
+
+   `sort=[string]`
+
+   * **Sample Calls:**
+
+  ```javascript
+    $.ajax({
+      url: "/offer/80000/desc",
+      dataType: "json",
+      type : "GET",
+      success : function(r) {
+        console.log(r);
+      }
+    });
+  ```
+  http://localhost:3000/offer/80000/desc
+
+  ```javascript
+    $.ajax({
+      url: "/offer/30000,20000/asc",
+      dataType: "json",
+      type : "GET",
+      success : function(r) {
+        console.log(r);
+      }
+    });
+  ```
+  http://localhost:3000/offer/30000,20000/asc
